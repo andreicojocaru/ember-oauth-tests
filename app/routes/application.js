@@ -2,12 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   beforeModel() {
-    return this.get('session').fetch().catch(() => {
-      console.log('Session fetch is empty!');
+    return this.get('session').fetch().then(() => {
+      console.info('Current user', this.get('session.currentUser'));
+    }).catch(() => {
+      console.warn('Session fetch is empty!');
     });
   },
   actions: {
-    login() {
+    signIn() {
       let session = this.get('session');
 
       if(session.get('isAuthenticated')) {
@@ -23,6 +25,9 @@ export default Ember.Route.extend({
         console.log('Authorization returned', auth);
         this.transitionTo('index');
       });
+    },
+    signOut: function() {
+      this.get('session').close();
     }
   }
 });

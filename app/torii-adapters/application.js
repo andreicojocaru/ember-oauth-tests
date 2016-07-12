@@ -1,18 +1,19 @@
-import Ember from 'ember';
+import ToriiFirebaseAdapter from 'emberfire/torii-adapters/firebase';
 
-export default Ember.Object.extend({
-  open: function (authentication) {
-    console.log('APP_Adapter OPEN called!');
+export default ToriiFirebaseAdapter.extend({
 
-    return new Ember.RSVP.Promise((resolve) => {
-      resolve({
-        currentUser: {
-          id: authentication.uid,
-          name: authentication.displayName,
-          email: authentication.email,
-          avatar: authentication.photoURL
-        }
-      });
-    });
-  }
+  // open: function (authentication) {
+  //   console.log('APP_Adapter OPEN called!');
+
+  //   return new Ember.RSVP.Promise((resolve) => {
+  //     resolve({
+  //       currentUser: {
+  //         id: authentication.uid,
+  //         name: authentication.displayName,
+  //         email: authentication.email,
+  //         avatar: authentication.photoURL
+  //       }
+  //     });
+  //   });
+  // }
 });
