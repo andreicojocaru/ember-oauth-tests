@@ -6,7 +6,7 @@ export default Ember.Route.extend({
       let session = this.get('session');
 
       if(session.get('isAuthenticated')) {
-        // todo: redirect to the page
+        this.transitionTo('index');
         return;
       }
 
@@ -14,8 +14,9 @@ export default Ember.Route.extend({
         provider: 'google'
       };
 
-      return this.get('session').open('firebase', settings).then((auth) => {
+      this.get('session').open('firebase', settings).then((auth) => {
         console.log('Authorization returned', auth);
+        this.transitionTo('index');
       });
     }
   }

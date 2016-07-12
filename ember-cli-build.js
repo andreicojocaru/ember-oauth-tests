@@ -6,10 +6,11 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
      dotEnv: {
       clientAllowedKeys: [
-        'FIREBASE_KEY', 
-        'FIREBASE_AUTHDOMAIN', 
+        'FIREBASE_KEY',
+        'FIREBASE_AUTHDOMAIN',
         'FIREBASE_DATABASEURL',
-        'FIREBASE_STORAGEBUCKET'
+        'FIREBASE_STORAGEBUCKET',
+        'GOOGLE_APIKEY'
       ]
     }
   });

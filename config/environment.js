@@ -12,7 +12,13 @@ module.exports = function (environment) {
       'connect-src': '\'self\' wss://*.firebaseio.com https://*.googleapis.com'
     },
     torii: {
-      sessionServiceName: 'session'
+      sessionServiceName: 'session',
+      providers: {
+        'youtube-oauth2': {
+          apiKey: process.env.GOOGLE_APIKEY,
+          redirectUri: 'http://localhost:4200'
+        }
+      }
     },
     firebase: {
       apiKey: process.env.FIREBASE_APIKEY,
