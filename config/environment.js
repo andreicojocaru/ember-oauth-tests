@@ -1,11 +1,22 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'oauth-tests',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'script-src': '\'self\' \'unsafe-eval\' apis.google.com',
+      'frame-src': '\'self\' https://*.firebaseapp.com',
+      'connect-src': '\'self\' wss://*.firebaseio.com https://*.googleapis.com'
+    },
+    firebase: {
+      apiKey: process.env.FIREBASE_APIKEY,
+      authDomain: process.env.FIREBASE_AUTHDOMAIN,
+      databaseURL: process.env.FIREBASE_DATABASEURL,
+      storageBucket: process.env.FIREBASE_STORAGEBUCKET
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
