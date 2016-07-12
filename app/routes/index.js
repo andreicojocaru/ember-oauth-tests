@@ -9,6 +9,9 @@ export default Ember.Route.extend({
 
       this.get('torii').open('youtube-oauth2').then((auth) => {
         console.log('YT auth returned', auth);
+
+        var controller = this.controllerFor('index');
+        controller.set('model', auth);
       });
 
       // this.get('torii').open('firebase', settings).then((auth) => {
