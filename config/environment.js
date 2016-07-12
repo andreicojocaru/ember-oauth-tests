@@ -11,6 +11,9 @@ module.exports = function (environment) {
       'frame-src': '\'self\' https://*.firebaseapp.com',
       'connect-src': '\'self\' wss://*.firebaseio.com https://*.googleapis.com'
     },
+    torii: {
+      sessionServiceName: 'session'
+    },
     firebase: {
       apiKey: process.env.FIREBASE_APIKEY,
       authDomain: process.env.FIREBASE_AUTHDOMAIN,
