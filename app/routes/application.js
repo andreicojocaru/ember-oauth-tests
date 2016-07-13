@@ -21,7 +21,7 @@ export default Ember.Route.extend({
         provider: 'google'
       };
 
-      this.get('session').open('firebase', settings).then((auth) => {
+      session.open('firebase', settings).then((auth) => {
         console.log('Authorization returned', auth);
         this.transitionTo('index');
       });

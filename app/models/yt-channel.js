@@ -10,5 +10,10 @@ export default Model.extend({
   title: attr('string'),
   description: attr('string'),
   thumbnail: attr('string'),
-  publishedAt: attr('string')
+  publishedAt: attr('string'),
+  favorites: attr('string'),
+  likes: attr('string'),
+  uploads: attr('string'),
+  watchHistory: attr('string'),
+  watchLater: attr('string')
 });

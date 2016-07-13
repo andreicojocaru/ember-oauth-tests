@@ -7,6 +7,5 @@ export default Model.extend({
   name: attr('string'),
   avatar: attr('string'),
   auth: belongsTo('authorization'),
-  ytModel: belongsTo('yt-model'),
   ytChannels: hasMany('yt-channel')
 });
