@@ -3,6 +3,8 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
+  console.log('Make sure the .ENV file containing the app secrets exists in your project root!');
+
   var app = new EmberApp(defaults, {
      dotEnv: {
       clientAllowedKeys: [

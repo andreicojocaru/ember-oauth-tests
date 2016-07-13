@@ -1,19 +1,34 @@
+import Ember from 'ember';
 import ToriiFirebaseAdapter from 'emberfire/torii-adapters/firebase';
 
 export default ToriiFirebaseAdapter.extend({
+  store: Ember.inject.service(),
+  open(authentication) {
+    return new Ember.RSVP.Promise((resolve, reject) => {
+      this.get('store').query('user', { orderBy: 'uid', equalTo: authentication.uid }).then((response) => {
+        var user = response.get('firstObject');
 
-  // open: function (authentication) {
-  //   console.log('APP_Adapter OPEN called!');
+        if (user) {
+          resolve({
+            currentUser: user
+          });
+          return;
+        }
 
-  //   return new Ember.RSVP.Promise((resolve) => {
-  //     resolve({
-  //       currentUser: {
-  //         id: authentication.uid,
-  //         name: authentication.displayName,
-  //         email: authentication.email,
-  //         avatar: authentication.photoURL
-  //       }
-  //     });
-  //   });
-  // }
+        var newUser = this.get('store').createRecord('user', {
+          uid: authentication.uid,
+          name: authentication.displayName,
+          avatar: authentication.photoURL
+        });
+
+        newUser.save().then(() => {
+          resolve({
+            currentUser: newUser
+          });
+        }).catch((error) => {
+          reject(error);
+        });
+      });
+    });
+  }
 });

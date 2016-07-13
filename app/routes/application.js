@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     return this.get('session').fetch().then(() => {
       console.info('Current user', this.get('session.currentUser'));
     }).catch(() => {
-      console.warn('Session fetch is empty!');
+      console.info('Session fetch is empty!');
     });
   },
   actions: {
