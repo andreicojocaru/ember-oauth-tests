@@ -12,7 +12,8 @@ module.exports = function(defaults) {
         'FIREBASE_AUTHDOMAIN',
         'FIREBASE_DATABASEURL',
         'FIREBASE_STORAGEBUCKET',
-        'GOOGLE_APIKEY'
+        'GOOGLE_APIKEY',
+        'GOOGLE_CLIENT_SECRET'
       ]
     }
   });

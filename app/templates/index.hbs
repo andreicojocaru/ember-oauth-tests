@@ -1,5 +1,6 @@
 {{#unless isAuthorized}}
-  <button {{action "authYT"}}>YT Auth</button>
+  <button {{action "authYTbearer"}}>YT Auth [Bearer]</button>
+  <button {{action "authYTcode"}}>YT Auth [Code]</button>
 {{else}}
   <button {{action "makeYTCall"}}>Get Channel Data</button>
 {{/unless}}

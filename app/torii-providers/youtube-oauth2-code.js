@@ -3,12 +3,12 @@
  * using the OAuth2 authorization flow in a popup window.
  */
 
-import Oauth2 from 'torii/providers/oauth2-bearer';
+import Oauth2 from 'torii/providers/oauth2-code';
 import {configurable} from 'torii/configuration';
 
-var YouTubeOauth2 = Oauth2.extend({
+var YouTubeOauth2Code = Oauth2.extend({
 
-  name:    'youtube-oauth2',
+  name:    'youtube-oauth2-code',
   baseUrl: 'https://accounts.google.com/o/oauth2/auth',
 
   // additional params that this provider requires
@@ -16,7 +16,7 @@ var YouTubeOauth2 = Oauth2.extend({
 
   requestVisibleActions: configurable('requestVisibleActions', ''),
 
-  responseParams: ['token'],
+  responseParams: ['code', 'state'],
 
   scope: configurable('scope', 'https://www.googleapis.com/auth/youtube.readonly'),
 
@@ -25,4 +25,4 @@ var YouTubeOauth2 = Oauth2.extend({
   redirectUri: configurable('redirectUri', 'http://localhost:4200/oauth2callback')
 });
 
-export default YouTubeOauth2;
+export default YouTubeOauth2Code;

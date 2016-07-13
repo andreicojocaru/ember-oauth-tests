@@ -4,10 +4,7 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   user: belongsTo('user'),
-  token: attr('string'),
-  favorites: attr('string'),
-  likes: attr('string'),
-  uploads: attr('string'),
-  watchHistory: attr('string'),
-  watchLater: attr('string')
+  accessToken: attr('string'),
+  authorizationCode: attr('string'),
+  refreshToken: attr('string')
 });

@@ -14,8 +14,13 @@ module.exports = function (environment) {
     torii: {
       sessionServiceName: 'session',
       providers: {
-        'youtube-oauth2': {
+        'youtube-oauth2-bearer': {
           apiKey: process.env.GOOGLE_APIKEY,
+          redirectUri: 'http://localhost:4200'
+        },
+        'youtube-oauth2-code': {
+          apiKey: process.env.GOOGLE_APIKEY,
+          clientSecret: process.env.GOOGLE_CLIENT_SECRET,
           redirectUri: 'http://localhost:4200'
         }
       }

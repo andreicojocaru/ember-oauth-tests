@@ -3,9 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   ajax: Ember.inject.service(),
   token: Ember.computed.alias('model.authorizationToken.token'),
-  isAuthorized: Ember.computed('token', function isAuthorized() {
-    return !!this.get('token');
-  }),
+  // isAuthorized: Ember.computed('token', function isAuthorized() {
+  //   return !!this.get('token');
+  // }),
   ytBaseUrl: 'https://www.googleapis.com/youtube/v3/',
   actions: {
     makeYTCall() {
